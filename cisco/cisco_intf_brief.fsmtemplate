@@ -1,0 +1,23 @@
+Value Interface (\S+)
+Value State (up|down|administratively down|err-disabled)
+Value Protocol (up|down)
+Value Description (.*)
+Value Duplex (Full|Half|Auto)
+Value Bandwidth (\d+)
+Value Input_rate (\d+)
+Value Output_rate (\d+)
+Value Input_err (\d+)
+Value Input_crc (\d+)
+Value Output_err (\d+)
+Value Collisions (\d+)
+
+Start
+  ^${Interface} is ${State}, line protocol is ${Protocol}
+  ^  Description: ${Description}
+  ^  MTU \d+ bytes, BW ${Bandwidth} Kbit
+  ^  ${Duplex}
+  ^  \d+ \w+ input rate ${Input_rate}
+  ^  \d+ \w+ oux*tput rate ${Output_rate}
+  ^     ${Input_err} input errors, ${Input_crc} CRC
+  ^     ${Output_err} output errors(, ${Collisions} collisions)* -> Record
+
